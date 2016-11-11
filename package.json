@@ -1,7 +1,8 @@
 {
   "name": "homebridge-garadget",
   "version": "0.0.1",
-  "description": "Garadget plugin for homebridge: https://github.com/nfarina/homebridge",
+  "description": "Garadget device plugin for Homebridge -- Homekit Integration for Garadget using Homebridge.",
+  "main": "index.js",
   "author": "xNinjas",
   "license": "ISC",
   "keywords": [
@@ -19,6 +20,6 @@
     "homebridge": ">=0.4.0"
   },
   "dependencies": {
-    "request": "^2.78.0",
+    "request": "^2.78.0"
   }
 }
