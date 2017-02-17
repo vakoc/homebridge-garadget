@@ -99,8 +99,18 @@ DoorAccessory.prototype.setState = function(state, callback) {
   },
 
   DoorAccessory.prototype.getOD = function(callback) {
-    this.log("Set ObstructionDetected...to False");
-    callback(null, 0); // set to false
+    this.log("Get ObstructionDetected...");
+    request.get({
+      url: this.cloudURL + this.deviceID + '/doorStatus?access_token=' + this.access_token
+    }, function(err, response, body) {
+      if (!err && response.statusCode == 200) {
+        callback(null, 0); // success
+      } else {
+        this.log("Error getting state: %s", err);
+        this.log("This means your access token expired. Replace in config.json");
+        callback(null, 1); // failed
+      }
+    }.bind(this));
   }
 
 DoorAccessory.prototype.getServices = function() {
